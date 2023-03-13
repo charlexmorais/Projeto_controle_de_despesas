@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de despesas</title>
+    <link rel="icon" href="assets/img/calculadora .png">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <header id="menu">
+        <div class="menu-nav">
+            <div class="despesas">
+                <strong> Despesas</strong>
+
+            </div>
+            <div id="separator">
+                <img src="assets/img/Separator.png" alt="separator">
+            </div>
+            <div class="categorias" alt="categorias">
+                <strong>Categorias</strong>
+            </div>
+        </div>
+    </header>
+    <!-- INICIO da pagina home -->
+
+    <section class="home hidden">
+        <div class="card">
+            <div class="card-total-pago card-primary">
+                <h1>TOTAL PAGO</h1>
+                <strong>R$ 100,00</strong>
+            </div>
+            <div class="card-total_a_pagar card-primary">
+                <h1>TOTAL A PAGAR</h1>
+                <strong>R$ 250, 00</strong>
+            </div>
+            <div class="card-atrasadas card-primary">
+                <h1>ATRASADAS</h1>
+                <strong>1</strong>
+            </div>
+        </div>
+
+
+        <div class="container-filtrar ">
+
+            <label for="Filtrar">Filtrar</label>
+            <input class="input-filtrar " type="text">
+            <button class="btn-primary btn-personalizacao-filtrar btn-filtrar ">FILTRAR</button>
+
+        </div>
+        <table class="tabela-controle-despesas">
+            <thead>
+                <tr>
+                    <th>Data de Vencimento</th>
+                    <th>Despesa</th>
+                    <th>Valor</th>
+                    <th>Status</th>
+
+                </tr>
+            </thead>
+            <tbody id="exibir-resultado"></tbody>
+
+        </table>
+
+        <button id="personalizacao-botao-adicionar" class="btn-adicionar btn-primary ">ADICIONAR DESPESA</button>
+
+    </section>
+    <!--FINAL da pagina home-->
+
+    <!-- INICIO modal adicionar despesa-->
+    <section class="modal-add-despesa ">
+        <div class="container-modal ">
+            <h1>ADICIONAR DESPESA</h1>
+            <div class=" conteiner-categoria-prymary ">
+                <label for="categoria">Categoria</label>
+                <input id="input-categoria" class="input-border-white input-category" type="text"
+                    placeholder="Busque a categoria">
+            </div>
+            <div class="conteiner-categoria-prymary">
+                <label for="data-vencimento">Data de Vencimento</label>
+                <input class="input-border-white input-category " type="text" placeholder="23/03/2023">
+            </div>
+
+            <div class="conteiner-categoria-prymary">
+                <label for="despesa">Despesa</label>
+                <input class="input-border-white input-category" type="text" placeholder="digite a despesa">
+            </div>
+            <div class=" conteiner-categoria-prymary">
+                <label for="valor">Valor</label>
+                <input class="input-border-white input-category" type="number" placeholder="digite o valor da despesa">
+            </div>
+
+        </div>
+        <div id="botoes-add-categorias">
+            <button id="btn-personalizao-salvar" class="btn-salvar btn-primary">SALVAR</button>
+
+            <button id="btn-personalizacao-cancelar" class="btn-cancelar btn-primary">Cancelar</button>
+        </div>
+    </section> <!-- FINAL  modal adicionar despesa-->
+
+    <!--  INICIO  da pagina categorias -->
+    <section class="container-modal hidden">
+
+        <div class="container-filtro container-filtrar label ">
+            <h1>CADASTRO DE CATEGORIAS</h1>
+            <label for="filtrar">filtrar</label>
+
+            <input class="input-filtrar " type="text">
+            <button class="btn-primary btn-personalizacao btn-filtrar  botao-filtrar">FILTRAR</button>
+        </div>
+        <table class="tabela-categorias ">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoria</th>
+                    <th>Açôes</th>
+
+
+                </tr>
+            </thead>
+            <tbody id="result-categoria"></tbody>
+        </table>
+        <button id="btn-adicionar-despesas " class="btn-adicionar btn-primary btn-personalizacao">ADICIONAR
+            CATEGORIA</button>
+
+    </section>
+       <!-- FINAL da pagina categorias -->
+
+    <!-- INICIO modal de categorias -->
+    <section class="modal-categorias hidden ">
+        <div class="container-modal ">
+            <h1 style="white-space: nowrap;">ADICIONAR/EDITAR CATEGORIA</h1>
+
+            <div class="adicionar-categorias conteiner-categoria-prymary ">
+                <label for="categoria">Categoria</label>
+                <input id="input-categoria" class="input-border-white input-category " type="text"
+                    placeholder="adicione a  categoria">
+                <button id="btn-personalizao-salvar" class=" conteiner-categoria btn-salvar btn-primary">SALVAR</button>
+                <button id="btn-personalizacao-cancelar" class="btn-cancelar btn-primary">Cancelar</button>
+            </div>
+        </div>
+        </div>
+        <!-- Final da pagina categoria+modal adicionar categoria-->
+</body>
+
+</html>
