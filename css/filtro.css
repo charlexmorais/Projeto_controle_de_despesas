@@ -1,0 +1,71 @@
+/* filtrar */
+.container-filtrar {
+    display: flex;
+    align-items: center;
+    margin-left: 20%;
+    margin-top: 6%;
+    margin-bottom: 2%;
+  }
+  .container-filtrar label {
+    position: absolute;
+    margin-bottom: 2%;
+    width: 32px;
+    height: 12px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+  
+    letter-spacing: 0.15px;
+  
+    color: rgba(0, 0, 0, 0.6);
+  
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+  /* reaproveitando nos botoes*/
+  .btn-primary {
+    border-radius: 4px;
+    padding: 8px 22px 8px 22px;
+    background: #2196f3;
+    border: solid 4px #2196f3;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+  
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+  
+  /* * conteudo */
+  .btn-personalizacao-filtrar {
+    letter-spacing: 0.46px;
+    text-transform: uppercase;
+  }
+  
+  /* botao filtrar */
+  .btn-filtrar {
+    margin-left: 1%;
+  
+    height: 34px;
+    width: 108px;
+    left: 626px;
+    top: 375px;
+  }
+  
+  .input-filtrar {
+    height: 22px;
+    width: 451px;
+    left: 0px;
+    top: 0px;
+    border-radius: nullpx;
+    border-top: #ffff;
+    border-right: #ffff;
+    border-left: #ffff;
+  }
+  

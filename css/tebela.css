@@ -1,0 +1,44 @@
+.tabela-controle-despesas table {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 200px;
+}
+.thead{
+  margin-left: 11%;
+}
+
+table {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+
+  width: auto;
+  height: 56px;
+
+  background: #f3f6f9;
+
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+th {
+  width: 281px;
+  height: 24px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+
+  letter-spacing: 0.25px;
+
+  color: rgba(0, 0, 0, 0.87);
+
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}

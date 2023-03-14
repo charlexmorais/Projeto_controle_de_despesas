@@ -67,127 +67,6 @@ header div {
 .hidden {
   display: none;
 }
-/* reaproveitando cards*/
-.card-primary {
-  height: 125px;
-  width: 22%;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-  left: 0%;
-  right: 0%;
-}
-/* reproveitando cards */
-.card {
-  display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin-top: 10px;
-  bottom: 79.01%;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 143%;
-
-  text-align: center;
-  letter-spacing: 0.17px;
-
-  color: #000000;
-}
-
-.card-total-pago {
-  top: 25%;
-}
-.card-total_a_pagar {
-  top: 14%;
-}
-
-.card-atrasadas {
-  position: relative;
-
-  top: 10%;
-}
-/* responsividade  font , resolucao */
-@media (max-width: 900px) {
-  .card-total-pago h1 {
-    font-size: 24px;
-    color: #178d46;
-  }
-  .card-total-pago strong {
-    font-size: 25px;
-    color: #178d46;
-  }
-  .card-total_a_pagar h1 {
-    font-size: 24px;
-    color: #ff0000;
-  }
-  .card-total_a_pagar strong {
-    font-size: 15px;
-    color: #ff0000;
-  }
-  .card-atrasadas h1 {
-    font-size: 24px;
-    color: #ffb800;
-  }
-  .card-atrasadas strong {
-    font-size: 25px;
-    color: #ffb800;
-  }
-}
-@media (min-width: 700px) {
-  .card-total-pago h1 {
-    font-size: 24px;
-    color: #178d46;
-  }
-  .card-total-pago strong {
-    font-size: 36px;
-    color: #178d46;
-  }
-  .card-total_a_pagar h1 {
-    font-size: 24px;
-    color: #ff0000;
-  }
-  .card-total_a_pagar strong {
-    font-size: 36px;
-    color: #ff0000;
-  }
-  .card-atrasadas h1 {
-    font-size: 24px;
-    color: #ffb800;
-  }
-  .card-atrasadas strong {
-    font-size: 36px;
-    color: #ffb800;
-  }
-}
-/* filtrar */
-.container-filtrar {
-  display: flex;
-  align-items: center;
-  margin-left: 20%;
-  margin-top: 6%;
-  margin-bottom: 2%;
-}
-.container-filtrar label {
-  position: absolute;
-  margin-bottom: 2%;
-  width: 32px;
-  height: 12px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 12px;
-
-  letter-spacing: 0.15px;
-
-  color: rgba(0, 0, 0, 0.6);
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-}
 /* reaproveitando nos botoes*/
 .btn-primary {
   border-radius: 4px;
@@ -202,75 +81,6 @@ header div {
 
   flex: none;
   order: 1;
-  flex-grow: 0;
-}
-
-/* * conteudo */
-.btn-personalizacao-filtrar {
-  letter-spacing: 0.46px;
-  text-transform: uppercase;
-}
-
-/* botao filtrar */
-.btn-filtrar {
-  margin-left: 1%;
-
-  height: 34px;
-  width: 108px;
-  left: 626px;
-  top: 375px;
-}
-
-.input-filtrar {
-  height: 22px;
-  width: 451px;
-  left: 0px;
-  top: 0px;
-  border-radius: nullpx;
-  border-top: #ffff;
-  border-right: #ffff;
-  border-left: #ffff;
-}
-
-.tabela-controle-despesas table {
-  display: flex;
-  justify-content: space-between;
-  margin-left: 200px;
-}
-
-table {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
-
-  width: auto;
-  height: 56px;
-
-  background: #f3f6f9;
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-}
-th {
-  width: 281px;
-  height: 24px;
-
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 150%;
-
-  letter-spacing: 0.25px;
-
-  color: rgba(0, 0, 0, 0.87);
-
-  flex: none;
-  order: 0;
   flex-grow: 0;
 }
 
@@ -303,38 +113,7 @@ th {
   box-shadow: 0 0 2px 2px #007bff; /* adiciona uma sombra para destacar o botão */
   cursor: pointer;
 }
-/* inicio da pagina de categorias */
-.modal-add-despesa {
-  position: absolute;
-  width: 764px;
-  height: 611px;
-  margin-top: 90px;
-
-  left: calc(50% - 764px / 2 - 1px);
-  top: calc(50% - 611px / 2 - 55px);
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-}
-
-.container-modal div {
-  display: block;
-}
-
-.container-modal h1 {
-  white-space: nowrap;
-  width: 239px;
-  height: 34px;
-  margin-left: 25%;
-  margin-bottom: 50px;
-
-  /* or 34px */
-
-  letter-spacing: 0.17px;
-}
-/* reaproveitando  */
-.conteiner-categoria-prymary {
+.conteiner-categoria-prymary { /* reaproveitando  */
   display: block;
   width: 465.19px;
   height: 24px;
@@ -389,6 +168,12 @@ th {
 }
 #btn-personalizacao-cancelar {
   margin: 3%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 4px;
+  padding: 8px 22px 8px 22px;
 }
 .btn-salvar:hover {
   outline: none; /* remove a borda padrão que aparece ao dar foco */
@@ -399,21 +184,4 @@ th {
   outline: none; /* remove a borda padrão que aparece ao dar foco */
   box-shadow: 0 0 2px 2px #d32f2f; /* adiciona uma sombra para destacar o botão */
   cursor: pointer;
-}
-
-/* INICIO modal de categorias */
-.modal-categorias {
-  position: absolute;
-  width: 764px;
-  height: 275px;
-  left: calc(50% - 764px / 2);
-  top: calc(50% - 275px / 2 - 223px);
-  margin-top: 5%;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 8px;
-}
-.adicionar-categorias {
-  margin-left: 8%;
 }
