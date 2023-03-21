@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="css/filtro.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/tebela.css">
-    
+
 
 </head>
 
@@ -35,7 +36,7 @@
     </header>
     <!-- INICIO da pagina home -->
 
-    <section class="home hidden ">
+    <section id="pagina-home" class="home  ">
         <div class="card">
             <div id="total-pago" class="card-total-pago card-primary">
                 <h1>TOTAL PAGO</h1>
@@ -55,11 +56,11 @@
         <div class="container-filtrar ">
 
             <label for="Filtrar">Filtrar</label>
-            <input class="input-filtrar " type="text">
+            <input id="filtro-despesas" class="filtro-cadastro " type="text">
             <button id="botao-filtrar" class="btn-primary btn-personalizacao-filtrar btn-filtrar ">FILTRAR</button>
 
         </div>
-        <table class="tabela-controle-despesas">
+        <table id="tabela-controle-despesas">
             <thead>
                 <tr>
                     <th>Data de Vencimento</th>
@@ -73,92 +74,107 @@
 
         </table>
 
-        <button id="botao-adicionar" id="personalizacao-botao-adicionar" class="btn-adicionar btn-primary ">ADICIONAR
+        <button id="botao-adicionar" id="botao-adicionar-despesa" class="btn-adicionar btn-primary ">ADICIONAR
             DESPESA</button>
 
     </section>
     <!--FINAL da pagina home-->
 
+
+
     <!-- INICIO modal adicionar despesa-->
-    <section class="modal-add-despesa hidden">
-        <div class="container-modal ">
+    <section id="pagina-despesas" class="modal-add-despesa hidden ">
+        <form id='meuFormulario' class="container-modal ">
             <h1>ADICIONAR DESPESA</h1>
             <div class=" conteiner-categoria-prymary ">
                 <label for="categoria">Categoria</label>
-                <input id="input-categoria" class="input-border-white input-category" type="text"
-                    placeholder="Busque a categoria">
+                <input list="opcoes-categorias" id="add-categoria" class="input-border-white input-category" type="text"
+                    placeholder="busque a categoria">
+                <datalist id="opcoes-categorias">
+
+                </datalist>
+
             </div>
             <div class="conteiner-categoria-prymary">
                 <label for="data-vencimento">Data de Vencimento</label>
-                <input class="input-border-white input-category " type="text" placeholder="23/03/2023">
+                <input id="data" class="input-border-white input-category vencimento" type="date">
+
             </div>
 
             <div class="conteiner-categoria-prymary">
                 <label for="despesa">Despesa</label>
-                <input class="input-border-white input-category" type="text" placeholder="digite a despesa">
+                <input id="despesa" class="input-border-white input-category" type="text"
+                    placeholder="digite a despesa">
             </div>
             <div class=" conteiner-categoria-prymary">
                 <label for="valor">Valor</label>
-                <input class="input-border-white input-category" type="number" placeholder="digite o valor da despesa">
+                <input id="valor" id="mascara" class="input-border-white input-category" type="text"
+                    placeholder="digite o valor da despesa">
             </div>
 
-        </div>
+        </form>
         <div id="botoes-add-categorias">
-            <button  id="btn-personalizao-salvar" class="btn-salvar btn-primary">SALVAR</button>
+            <button id="botao-salvar-despesa" class="btn-salvar btn-primary container">SALVAR</button>
 
-            <button id="botao-cancelar" id="btn-personalizacao-cancelar" class="btn-cancelar ">Cancelar</button>
+            <button id="botao-cancelar-despesa" id="botao-cancelar"
+                class="btn-cancelar botao-cancelar-pagina">Cancelar</button>
         </div>
     </section> <!-- FINAL  modal adicionar despesa-->
 
     <!--  INICIO  da pagina categorias -->
-    <section class="container-modal hidden ">
+    <section id="pagina-cadastro" class="container-modal hidden ">
 
         <div class="container-filtro container-filtrar label ">
             <h1>CADASTRO DE CATEGORIAS</h1>
             <label for="filtrar">filtrar</label>
 
-            <input class="input-filtrar " type="text">
-            <button id="filtrar-cadastro"
+            <input id="input-filtrar" class="input-filtrar " type="text">
+            <button id="btn-filtrar-cadastro"
                 class="btn-primary btn-personalizacao btn-filtrar  botao-filtrar">FILTRAR</button>
         </div>
-        <table class="tabela-categorias ">
-            <thead class="thead">
-                <tr>
+        <table>
+            <thead>
+                <tr id="cabecalho">
                     <th>ID</th>
                     <th>Categoria</th>
-                    <th>Açôes</th>
-
-
+                    <th>Açoes</th>
                 </tr>
+
             </thead>
-            <tbody id="result-categoria"></tbody>
+            <tbody id="tabelalistadeCategorias"></tbody>
+
         </table>
-        <button id="addcategoria" id="btn-adicionar-despesas "
-            class="btn-adicionar btn-primary btn-personalizacao">ADICIONAR
+        <button id="addcategoria" class="btn-adicionar btn-primary btn-personalizacao">ADICIONAR
             CATEGORIA</button>
 
     </section>
     <!-- FINAL da pagina categorias -->
 
     <!-- INICIO modal de categorias -->
-    <section class="modal-categorias ">
+    <section id="pagina-add-categoria" class="modal-categorias  hidden ">
         <div class="container-modal ">
             <h1 style="white-space: nowrap;">ADICIONAR/EDITAR CATEGORIA</h1>
 
             <div class="adicionar-categorias conteiner-categoria-prymary ">
                 <label for="categoria">Categoria</label>
-                <input id="input-categoria" class="input-border-white input-category " type="text"
-                    placeholder="adicione a  categoria">
-                <button id="botao-salvar" id="btn-personalizao-salvar"
-                    class=" conteiner-categoria btn-salvar btn-primary">SALVAR</button>
-                <button   id="btn-personalizacao-cancelar" class="btn-cancelar ">Cancelar</button>
+                <div class="container-btn">
+                    <input id="categoria" class="input-border-white input-category " type="text"
+                        placeholder="adicione a  categoria">
+                    <button id="botao-salvar" id="botao-salvar-categoria"
+                        class=" conteiner-categoria btn-salvar btn-primary container">SALVAR</button>
+                    <button id="btn-categoria-cancelar" id="btn-personalizacao-cancelar "
+                        class="btn-cancelar botao-cancelar-pagina">Cancelar</button>
+
+                </div>
             </div>
-        </div>
-        </div>
+
+
 
     </section> <!-- Final da pagina categoria+modal adicionar categoria-->
-  
+
 </body>
 <script src="index.js"></script>
+
+
 
 </html>

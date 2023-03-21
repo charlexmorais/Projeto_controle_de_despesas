@@ -5,8 +5,9 @@ html {
 body {
   margin: 0;
   padding: 1px;
-  background-color: #ddd;
+  background-color: white;
 }
+
 h1 {
   font-family: "Roboto";
   font-style: normal;
@@ -53,6 +54,9 @@ header div {
 
   background: #e0e0e0;
 }
+input{
+  outline: none;
+}
 #menu {
   display: flex;
   justify-content: flex-end;
@@ -79,9 +83,9 @@ header div {
   font-size: 15px;
   color: #ffffff;
 
-  flex: none;
+  /* flex: none;
   order: 1;
-  flex-grow: 0;
+  flex-grow: 0; */
 }
 
 /* botao adicionar despesas */
@@ -97,7 +101,7 @@ header div {
   border-radius: 4px;
 }
 /* conteudo */
-#personalizacao-botao-adicionar {
+#botao-adicionar-despesa {
   line-height: 26px;
   letter-spacing: 0.46px;
   text-transform: uppercase;
@@ -113,10 +117,11 @@ header div {
   box-shadow: 0 0 2px 2px #007bff; /* adiciona uma sombra para destacar o botão */
   cursor: pointer;
 }
-.conteiner-categoria-prymary { /* reaproveitando  */
+.conteiner-categoria-prymary {
+  /* reaproveitando  */
   display: block;
-  width: 465.19px;
-  height: 24px;
+  width: 465px;
+  height: 30px;
   margin-left: 18%;
   margin-top: 5%;
 }
@@ -129,10 +134,9 @@ header div {
 /* reaproveitando   */
 .input-category {
   height: 24px;
-  width: 480px;
+  width: 465px;
   left: 0px;
   top: 0px;
-  border-radius: nullpx;
   margin-top: 2%;
   margin-left: 0%;
 }
@@ -141,15 +145,15 @@ header div {
 }
 
 .btn-salvar {
-  margin-left: 33%;
-  margin-top: 10%;
+  /* margin-left: 33%;
+  margin-top: 10%; 
 
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
     0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
+  border-radius: 4px; */
 }
 /* conteudo */
-#btn-personalizao-salvar {
+#botao-salvar-categoria {
   line-height: 26px;
   letter-spacing: 0.46px;
   text-transform: uppercase;
@@ -166,8 +170,8 @@ header div {
 
   color: #d32f2f;
 }
-#btn-personalizacao-cancelar {
-  margin: 3%;
+.botao-cancelar-pagina {
+  
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -185,3 +189,55 @@ header div {
   box-shadow: 0 0 2px 2px #d32f2f; /* adiciona uma sombra para destacar o botão */
   cursor: pointer;
 }
+/* reaproveitando codigo */
+.btn-Status {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4px 10px;
+  color: #ffffff;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+   0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.46000000834465027px;
+  text-align: left;
+}
+#pendente {
+  height: 30px;
+  width: 100px;
+  left: 6px;
+  top: 64px;
+  border-radius: 4px;
+  padding: 4px 10px 4px 10px;
+  color: #ffffff;
+  background: #ff0000;
+  /* elevation/2 */
+}
+#pago {
+margin-left: 2%;
+margin-top: 2%;
+  width: 80px;
+  height: 40px;
+  left: calc(50% - 56px / 2 - 72.5px);
+  bottom: 221px;
+  background: #178d46;
+  /* elevation/2 */
+}
+
+
+.container{
+  margin-left: 33%;
+  margin-top: 10%; 
+
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  
+}
+ 
+

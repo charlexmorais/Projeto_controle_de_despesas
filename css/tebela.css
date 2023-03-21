@@ -1,38 +1,37 @@
 .tabela-controle-despesas table {
-  display: flex;
+  display: table;
   justify-content: space-between;
-  margin-left: 200px;
+  margin-left: 2px;
 }
-.thead{
-  margin-left: 11%;
+
+.thead {
+  margin-left: 10%;
 }
 
 table {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px;
+  margin: auto;
 
-  width: auto;
+  
+
+  width: 60%;
   height: 56px;
 
-  background: #f3f6f9;
-
+  background: #f3f4f6;
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
 }
 th {
-  width: 281px;
-  height: 24px;
+  width: 820px;
+  height: 50px;
+  background: #F3F4F6;
 
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 250%;
 
   letter-spacing: 0.25px;
 
@@ -41,4 +40,16 @@ th {
   flex: none;
   order: 0;
   flex-grow: 0;
+}
+td {
+  
+
+  margin: auto;
+  line-height: 250%;
+  height: 52px;
+  padding:4px 8px;
+  margin-top: 50%;
+  
+  
+  
 }
