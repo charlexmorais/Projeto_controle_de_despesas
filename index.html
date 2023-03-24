@@ -40,15 +40,15 @@
         <div class="card">
             <div id="total-pago" class="card-total-pago card-primary">
                 <h1>TOTAL PAGO</h1>
-                <strong>R$ 100,00</strong>
+                <strong>R$ 00,00</strong>
             </div>
             <div id="total-a-pagar " class="card-total_a_pagar card-primary">
                 <h1>TOTAL A PAGAR</h1>
-                <strong>R$ 250, 00</strong>
+                <strong>R$ 00, 00</strong>
             </div>
-            <div id="atrasadas" class="card-atrasadas card-primary">
+            <div id="total-atrasadas" class="card-atrasadas card-primary">
                 <h1>ATRASADAS</h1>
-                <strong>1</strong>
+                <strong>0</strong>
             </div>
         </div>
 
@@ -71,6 +71,7 @@
                 </tr>
             </thead>
             <tbody id="exibir-resultado"></tbody>
+            
 
         </table>
 
@@ -108,8 +109,8 @@
             </div>
             <div class=" conteiner-categoria-prymary">
                 <label for="valor">Valor</label>
-                <input id="valor" id="mascara" class="input-border-white input-category" type="text"
-                    placeholder="digite o valor da despesa">
+                <input id="valor" onkeyup="mascara('R$', this)" id="mascara" class="input-border-white input-category"
+                    type="text" placeholder="digite o valor da despesa">
             </div>
 
         </form>
@@ -173,7 +174,7 @@
     </section> <!-- Final da pagina categoria+modal adicionar categoria-->
 
 </body>
-<script src="index.js"></script>
+<script src="js/index.js"></script>
 
 
 
