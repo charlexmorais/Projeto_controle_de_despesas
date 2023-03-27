@@ -58,3 +58,7 @@ td {
   
   
 }
+.tabela-despesas-container {
+  height: 300px; /* define a altura do contêiner */
+  overflow-y: auto; /* adiciona a barra de rolagem vertical automaticamente quando o conteúdo excede a altura do contêiner */
+}

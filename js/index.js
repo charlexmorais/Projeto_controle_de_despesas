@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // your code here
+});
+
 // -identificando-os-elementos-no-html-através-do-id dos botoes
 let btnNavCategoria = document.getElementById("categorias");
 let btnNavDespesas = document.getElementById("despesas");
@@ -8,11 +12,11 @@ let btnSalvar = document.getElementById("botao-salvar");
 let btnCancelar = document.getElementById("botao-cancelar");
 let btnCancelaDespesa = document.getElementById("botao-cancelar-despesa");
 let btnCancelarCategoria = document.getElementById("btn-categoria-cancelar");
+let btnExcluirPagas = document.getElementById("excluirStatuspago");
 let btnAddcategoria = document.getElementById("addcategoria");
 let btnFiltrarCadastro = document.getElementById("btn-filtrar-cadastro");
 let btnFiltrarDespesa = document.getElementById("botao-filtrar");
-// let btnPago = document.querySelector("#pago");
-let btnPendente = document.getElementById("pendente");
+
 // troca de paginas
 let paginaHome = document.getElementById("pagina-home");
 let paginaAddDespesas = document.getElementById("pagina-despesas");
@@ -31,7 +35,9 @@ let inputData = document.getElementById("data");
 let inputDespesas = document.getElementById("despesa");
 let inputValor = document.getElementById("valor");
 let inputFiltroDespesas = document.getElementById("filtro-despesas");
-
+let cardTotalpago = document.getElementById("total-pago");
+let cardTotalapagar = document.getElementById("total-a-pagar");
+let cardAtrasadas = document.getElementById("total-atrasadas");
 // data list
 let opcoesCategorias = document.getElementById("opcoes-categorias");
 
@@ -48,7 +54,7 @@ let listaDespesaslocalStorage = localStorage.getItem("despesas")
 
 const listaDespesas = listaDespesaslocalStorage ?? [];
 
-// gerando id para as listas de categoria e dispesas 
+// gerando id para as listas de categoria e dispesas
 function gerarIdCategoria() {
   if (listadeCategorias.length > 0) {
     return listadeCategorias[listadeCategorias.length - 1].id + 1;
@@ -68,7 +74,6 @@ function validarFormulario() {
     listadeCategorias.find((obj) => obj.categoria == inputCategoria.value)
   ) {
     alert("ERRO digite novamente ");
-    
   } else {
     inputCategoria.value = inputCategoria.value.toLowerCase(); // converter para minúsculas
     alert("preenchido com sucesso");
@@ -76,7 +81,7 @@ function validarFormulario() {
     limparCampo();
   }
 }
-  // objeto categoria
+// objeto categoria
 function salvarCategoria() {
   let categoria = {
     id: gerarIdCategoria(),
@@ -119,7 +124,8 @@ function atualizandoLocalstoragedespesas() {
 }
 // carrega as despesas da tabela do LocalStorage quando a página é carregada
 window.onload = function () {
-  listarDespesa();
+listarDespesa()
+
 };
 
 let proximoId = 1;
@@ -147,7 +153,7 @@ function editarCategoria(id) {
   listarCategoria(listadeCategorias);
 }
 
-// tabela listar categorias 
+// tabela listar categorias
 function listarCategoria(novalista) {
   tabelalistadeCategorias.innerHTML = novalista
     .map((categoria) => {
@@ -187,10 +193,11 @@ function validarFormularioDespesa() {
   if (
     inputBuscaCategoria.value.length !== 0 &&
     inputDespesas.value.length !== 0 &&
+    // inputValor.value.length == !isNaN &&
     listadeCategorias.some((obj) => obj.categoria == inputBuscaCategoria.value)
   ) {
     inputBuscaCategoria.value = inputBuscaCategoria.value.toLowerCase(); // converter para minúsculas
-    alert("preenchido com sucesso")
+    alert("preenchido com sucesso");
     return true;
   } else {
     alert("ERRO digite novamente ");
@@ -199,27 +206,12 @@ function validarFormularioDespesa() {
   }
 }
 
-// formatando moeda
-let mascara = (symbol, element) => {
-  // Seleciona o elemento pelo ID
-  let valor = document.getElementById("mascara");
-
-  // Remove qualquer caractere que não seja número
-  let val = inputValor.value.replace(/\D/g, "");
-
-  // Adiciona separadores de milhares
-  val = val.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
-
-  // Adiciona o símbolo e atualiza o valor do elemento
-  inputValor.value = symbol + val;
-};
-
-
 let despesa = {
   BuscaCategoria: "",
   despesa: "",
-  valor: inputData.value,
+  valor: inputValor.value,
   data: inputValor.value,
+  status: listarDespesa
 };
 function salvarDespesa() {
   let creandoDespesa = { ...despesa };
@@ -230,8 +222,6 @@ function salvarDespesa() {
   creandoDespesa.data = inputData.value;
   listaDespesas.push(creandoDespesa);
 }
-
-
 function trocaStatuspago(id) {
   const despesa = listaDespesas.find((d) => d.id === id);
   if (despesa) {
@@ -244,14 +234,22 @@ function trocaStatuspago(id) {
     );
     if (pagoButton && pendenteButton) {
       pagoButton.classList.toggle("hidden");
-      somaStatus();
       pendenteButton.classList.toggle("hidden");
-      
+      if (despesa.pago) {
+        exibiDespesaspagas();
+        exibirDespesasapagar();
+        exibirQuantidadeDespesasPendentes();
+      } else {
+        exibiDespesaspagas();
+        exibirDespesasapagar();
+        exibirQuantidadeDespesasPendentes();
+      }
     }
   }
 }
 
 // tabela listar despesa
+
 function listarDespesa(listaFiltrodespesas) {
   tabelaControleDedespesas.innerHTML = listaDespesas.map((despesa) => {
     if (despesa.despesa !== "") {
@@ -272,9 +270,12 @@ function listarDespesa(listaFiltrodespesas) {
         despesa.id
       })">Pendente</button>
             </td>
-            <button class="btn-cancelar botao-cancelar-pagina" data-id="${
+            <button id="excluirStatuspendente"class="btn-cancelar botao-cancelar-pagina" data-id="${
               despesa.id
-            }" onclick="excluirDespesa(${despesa.id})">Excluir</button>
+            }" onclick="excluirDespesasPendentes(${
+        despesa.id
+      })">Excluir</button>
+
           </tr>
         `;
     } else {
@@ -285,7 +286,7 @@ function listarDespesa(listaFiltrodespesas) {
   atualizandoLocalstoragedespesas();
 }
 
-// exibe lista filtro depesa  obs: recebendo  listaFiltrodespesas 
+// exibe lista filtro depesa  obs: recebendo  listaFiltrodespesas
 function exibeListaFiltro(despesa) {
   let trTdsfiltro = "";
   despesa.forEach(function (despesa) {
@@ -320,6 +321,7 @@ btnSalvardespesa.addEventListener("click", () => {
   if (validarFormularioDespesa()) {
     salvarDespesa();
     limparFormulario();
+    exibirQuantidadeDespesasPendentes();
     mostraPaginaHome();
     listarDespesa(listaDespesas);
   }
@@ -404,18 +406,93 @@ btnCancelaDespesa.addEventListener("click", () => {
   mostraPaginaHome();
 });
 
-
-// quando clicar no botao pago chama a 
-// funcao que soma valor e mostra na strong
-
-function somaStatus() {
-  
-const totalDespesas = listaDespesas.reduce((total, despesa) => {
-  return total + despesa.valor ;
-  
-}, 0);
-
-console.log(totalDespesas); 
-
-  
+// obs: usar parseFloat pra converter em numero
+// A chamada do método replaceé usada nesse código para transformar o valor da despesa de uma string formatada na moeda brasileira em um valor numérico (float) que pode ser usado em cálculos matemáticos.
+function somaDespesasPagas() {
+  const despesasPagas = listaDespesas.filter((despesa) => despesa.pago);
+  const totalDespesasPagas = despesasPagas.reduce((total, despesa) => {
+    const valorNumerico = parseFloat(
+      despesa.valor.replace("R$", "").replace(",", ".")
+    );
+    return total + valorNumerico;
+  }, 0);
+  console.log(totalDespesasPagas);
 }
+
+function exibiDespesaspagas() {
+  const despesasPagas = listaDespesas.filter((despesa) => despesa.pago);
+  const totalDespesasPagas = despesasPagas.reduce((total, despesa) => {
+    const valorNumerico = parseFloat(
+      despesa.valor.replace("R$", "").replace(",", ".")
+    );
+    return total + valorNumerico;
+  }, 0);
+  cardTotalpago.innerHTML = ` ${totalDespesasPagas.toLocaleString("pt-br", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
+
+function exibirDespesasapagar() {
+  const despesasApagar = listaDespesas.filter((despesa) => !despesa.pago);
+
+  const totalDespesasApagar = despesasApagar.reduce((total, despesa) => {
+    const valorNumerico2 = parseFloat(
+      despesa.valor.replace("R$", "").replace(",", ".")
+    );
+    return total + valorNumerico2;
+  }, 0);
+  cardTotalapagar.innerHTML = `${totalDespesasApagar.toLocaleString("pt-br", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })}`;
+}
+document.addEventListener("DOMContentLoaded", function () {
+  // your JavaScript code goes here
+});
+function contarDespesasPendentes() {
+  const despesasPendentes = listaDespesas.filter((despesa) => !despesa.pago);
+  return despesasPendentes.length;
+}
+
+function exibirQuantidadeDespesasPendentes() {
+  const quantidade = contarDespesasPendentes();
+
+  if (cardAtrasadas) {
+    cardAtrasadas.innerHTML = quantidade;
+  }
+}
+function excluirDespesasPendentes(id) {
+  let despesasPendentesFiltradas = listaDespesas.filter(
+    (despesa) => !despesa.pago
+  );
+
+  if (despesasPendentesFiltradas.length > 0) {
+    despesasPendentesFiltradas.splice(0, 1); // remove first element
+    cardAtrasadas.innerHTML = despesasPendentesFiltradas.length; // update count in HTML
+    excluirDespesa(id)
+    
+    
+  } else {
+    let despesasPagasFiltradas = listaDespesas.filter(
+      (despesa) => despesa.pago
+    );
+
+    if (despesasPagasFiltradas.length > 0) {
+      despesasPagasFiltradas = listaDespesas.filter((despesa) => despesa.pago);
+      cardTotalpago.innerHTML = 0; // reset count in HTML
+      excluirDespesa(id);
+      
+      
+    }
+  }
+}
+window.addEventListener('load', () => {
+  let deleteDespesa = document.querySelector("#excluirStatuspendente");
+  
+  deleteDespesa.addEventListener('click', () => {
+    excluirDespesasPendentes();
+    
+  });
+});
+

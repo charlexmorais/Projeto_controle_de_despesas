@@ -38,17 +38,17 @@
 
     <section id="pagina-home" class="home  ">
         <div class="card">
-            <div id="total-pago" class="card-total-pago card-primary">
+            <div class="card-total-pago card-primary">
                 <h1>TOTAL PAGO</h1>
-                <strong>R$ 00,00</strong>
+                <strong class="valor-pago" id="total-pago">0,00</strong>
             </div>
-            <div id="total-a-pagar " class="card-total_a_pagar card-primary">
+            <div class="card-total_a_pagar card-primary">
                 <h1>TOTAL A PAGAR</h1>
-                <strong>R$ 00, 00</strong>
+                <strong id="total-a-pagar">0,00</strong>
             </div>
-            <div id="total-atrasadas" class="card-atrasadas card-primary">
+            <div class="card-atrasadas card-primary">
                 <h1>ATRASADAS</h1>
-                <strong>0</strong>
+                <strong id="total-atrasadas">0</strong>
             </div>
         </div>
 
@@ -60,20 +60,25 @@
             <button id="botao-filtrar" class="btn-primary btn-personalizacao-filtrar btn-filtrar ">FILTRAR</button>
 
         </div>
-        <table id="tabela-controle-despesas">
-            <thead>
-                <tr>
-                    <th>Data de Vencimento</th>
-                    <th>Despesa</th>
-                    <th>Valor</th>
-                    <th>Status</th>
 
-                </tr>
-            </thead>
-            <tbody id="exibir-resultado"></tbody>
-            
 
-        </table>
+        <div class="tabela-despesas-container">
+            <table class="tabela-despesas" id="tabela-controle-despesas">
+                <thead>
+                    <tr>
+                        <th>Data de Vencimento</th>
+                        <th>Despesa</th>
+                        <th>Valor</th>
+                        <th>Status</th>
+
+                    </tr>
+                </thead>
+                <tbody id="exibir-resultado"></tbody>
+
+
+            </table>
+        </div>
+
 
         <button id="botao-adicionar" id="botao-adicionar-despesa" class="btn-adicionar btn-primary ">ADICIONAR
             DESPESA</button>
@@ -109,8 +114,8 @@
             </div>
             <div class=" conteiner-categoria-prymary">
                 <label for="valor">Valor</label>
-                <input id="valor" onkeyup="mascara('R$', this)" id="mascara" class="input-border-white input-category"
-                    type="text" placeholder="digite o valor da despesa">
+                <input id="valor" id="mascara" class="input-border-white input-category" type="text"
+                    placeholder="digite o valor da despesa">
             </div>
 
         </form>
@@ -118,7 +123,7 @@
             <button id="botao-salvar-despesa" class="btn-salvar btn-primary container">SALVAR</button>
 
             <button id="botao-cancelar-despesa" id="botao-cancelar"
-                class="btn-cancelar botao-cancelar-pagina">Cancelar</button>
+                class="btn-cancelar botao-cancelar-pagina ">Cancelar</button>
         </div>
     </section> <!-- FINAL  modal adicionar despesa-->
 
