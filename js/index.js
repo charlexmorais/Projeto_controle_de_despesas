@@ -126,6 +126,10 @@ function atualizandoLocalstoragedespesas() {
 window.onload = function () {
 listarDespesa()
 
+  exibiDespesaspagas(); // Ao carregar localStorage atualiza o card tt pago
+  exibirDespesasapagar(); // Ao carregar localStorage atualiza o card tt a pagar
+  exibirQuantidadeDespesasPendentes(); // Ao carregar localStorage atualiza o card atrasadas
+  
 };
 
 let proximoId = 1;
@@ -431,6 +435,7 @@ function exibiDespesaspagas() {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   })}`;
+  atualizandoLocalstoragedespesas(); // Atualiza localStorage dos cards
 }
 
 function exibirDespesasapagar() {
