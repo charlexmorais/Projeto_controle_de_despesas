@@ -1,49 +1,43 @@
-/* inicio da pagina de categorias */
+
 .modal-add-despesa {
-    position: absolute;
-    width: 764px;
-    height: 611px;
-    margin-top: 90px;
-  
-    left: calc(50% - 764px / 2 - 1px);
-    top: calc(50% - 611px / 2 - 55px);
-  
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-  }
-  
-  .container-modal div {
-    display: block;
-  }
-  
-  .container-modal h1 {
-    white-space: nowrap;
-    width: 239px;
-    height: 34px;
-    margin-left: 25%;
-    margin-bottom: 50px;
-  
-    
-  
-    letter-spacing: 0.17px;
-  }
-  /* INICIO modal de categorias */
+  position: absolute;
+  width: 764px;
+  height: 611px;
+  margin-top: 90px;
+  left: calc(50% - 764px / 2 - 1px);
+  top: calc(50% - 611px / 2 - 55px);
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.container-modal div {
+  display: block;
+}
+
+.container-modal h1 {
+  white-space: nowrap;
+  width: 239px;
+  height: 34px;
+  margin-left: 25%;
+  margin-bottom: 50px;
+  letter-spacing: 0.17px;
+}
+/* INICIO modal de categorias */
 .modal-categorias {
-    position: absolute;
-    width: 764px;
-    height: 275px;
-    left: calc(50% - 764px / 2);
-    top: calc(50% - 275px / 2 - 223px);
-    margin-top: 5%;
-  
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-  }
-  .adicionar-categorias {
-    margin-left: 8%;
-  }
-  #botoes-add-categorias{
-    margin-top: 10%;
-  }
+  position: absolute;
+  width: 764px;
+  height: 275px;
+  left: calc(50% - 764px / 2);
+  top: calc(50% - 275px / 2 - 223px);
+  margin-top: 5%;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+.adicionar-categorias {
+  margin-left: 8%;
+}
+#botoes-add-categorias {
+  margin-top: 10%;
+}

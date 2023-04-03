@@ -1,11 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // your code here
-});
-
 // -identificando-os-elementos-no-html-através-do-id dos botoes
 let btnNavCategoria = document.getElementById("categorias");
 let btnNavDespesas = document.getElementById("despesas");
-let btnFiltrar = document.getElementById("botao-filtrar");
 let btnAdicionardespesa = document.getElementById("botao-adicionar");
 let btnSalvardespesa = document.getElementById("botao-salvar-despesa");
 let btnSalvar = document.getElementById("botao-salvar");
@@ -61,26 +56,46 @@ function gerarIdCategoria() {
   }
   return 1;
 }
+// gerando id para as listas de dispesas
 function gerarIddespesas() {
+  let ultimoId = 0;
   if (listaDespesas.length > 0) {
-    return listaDespesas[listaDespesas.length - 1].id + 1;
+    let ultimaDespesa = listaDespesas[listaDespesas.length - 1];
+    if (ultimaDespesa != null) {
+      ultimoId = ultimaDespesa.id;
+    }
   }
-  return 1;
+  return ultimoId + 1;
 }
-
+// validanddo formulario de cadastro de categorias
 function validarFormulario() {
   if (
     inputCategoria.value.length == 0 ||
-    listadeCategorias.find((obj) => obj.categoria == inputCategoria.value)
+    listadeCategorias.find(
+      (obj) => obj.categoria == inputCategoria.value.toLowerCase()
+    )
   ) {
-    alert("ERRO digite novamente ");
+    alert("ERRO: digite novamente ");
+    inputCategoria.focus();
+    return false;
   } else {
-    inputCategoria.value = inputCategoria.value.toLowerCase(); // converter para minúsculas
-    alert("preenchido com sucesso");
+    inputCategoria.value = inputCategoria.value.toLowerCase();
+    alert("Preenchido com sucesso!");
     salvarCategoria();
     limparCampo();
+
+    return true;
   }
 }
+
+btnSalvar.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (validarFormulario()) {
+    mostraPaginaCategorias();
+    listarCategoria(listadeCategorias);
+  }
+});
+
 // objeto categoria
 function salvarCategoria() {
   let categoria = {
@@ -124,12 +139,10 @@ function atualizandoLocalstoragedespesas() {
 }
 // carrega as despesas da tabela do LocalStorage quando a página é carregada
 window.onload = function () {
-listarDespesa()
-
+  listarDespesa();
   exibiDespesaspagas(); // Ao carregar localStorage atualiza o card tt pago
   exibirDespesasapagar(); // Ao carregar localStorage atualiza o card tt a pagar
   exibirQuantidadeDespesasPendentes(); // Ao carregar localStorage atualiza o card atrasadas
-  
 };
 
 let proximoId = 1;
@@ -193,30 +206,40 @@ function categoriasDatalist() {
   opcoesCategorias.innerHTML = opcao;
 }
 
+// validando campos no formulario de adicionar depesas
 function validarFormularioDespesa() {
   if (
     inputBuscaCategoria.value.length !== 0 &&
     inputDespesas.value.length !== 0 &&
-    // inputValor.value.length == !isNaN &&
     listadeCategorias.some((obj) => obj.categoria == inputBuscaCategoria.value)
   ) {
-    inputBuscaCategoria.value = inputBuscaCategoria.value.toLowerCase(); // converter para minúsculas
-    alert("preenchido com sucesso");
-    return true;
+    // Verificar se o valor inserido é "R$ 0,00"
+    if (inputValor.value === "R$ 0,00") {
+      alert("Valor inválido. Insira um valor diferente de zero.");
+      return false;
+    }
   } else {
     alert("ERRO digite novamente ");
     limparFormulario();
+
     return false;
   }
+
+  inputBuscaCategoria.value = inputBuscaCategoria.value.toLowerCase(); // converter para minúsculas
+  inputDespesas.value = inputDespesas.value.toLowerCase(); // converter para minúsculas
+  alert("preenchido com sucesso");
+  return true;
 }
 
+// objeto despesa
 let despesa = {
   BuscaCategoria: "",
   despesa: "",
   valor: inputValor.value,
   data: inputValor.value,
-  status: listarDespesa
+  status: listarDespesa,
 };
+// salvando e adicionando no array listaDespesas
 function salvarDespesa() {
   let creandoDespesa = { ...despesa };
   creandoDespesa.id = gerarIddespesas();
@@ -226,67 +249,83 @@ function salvarDespesa() {
   creandoDespesa.data = inputData.value;
   listaDespesas.push(creandoDespesa);
 }
-function trocaStatuspago(id) {
-  const despesa = listaDespesas.find((d) => d.id === id);
-  if (despesa) {
-    despesa.pago = !despesa.pago;
-    const pagoButton = document.querySelector(
-      `button[data-id="${id}"][id="pago"]`
-    );
-    const pendenteButton = document.querySelector(
-      `button[data-id="${id}"][id="pendente"]`
-    );
-    if (pagoButton && pendenteButton) {
-      pagoButton.classList.toggle("hidden");
-      pendenteButton.classList.toggle("hidden");
-      if (despesa.pago) {
-        exibiDespesaspagas();
-        exibirDespesasapagar();
-        exibirQuantidadeDespesasPendentes();
-      } else {
-        exibiDespesaspagas();
-        exibirDespesasapagar();
-        exibirQuantidadeDespesasPendentes();
-      }
-    }
+console.log(listaDespesas);
+let novoArray = listaDespesas.filter((elemento) => elemento !== null);
+console.log(novoArray);
+function trocaStatusFiltro(id) {
+  const despesaIndex = listaDespesas.findIndex((despesa) => despesa.id === id);
+  listaDespesas[despesaIndex].pago = !listaDespesas[despesaIndex].pago;
+  const linhaDespesa = document.querySelector(`.despesa-${id}`);
+  if (listaDespesas[despesaIndex].pago) {
+    exibiDespesaspagas();
+    exibirDespesasapagar();
+    exibirQuantidadeDespesasPendentes();
+  } else {
+    exibiDespesaspagas();
+    exibirDespesasapagar();
+    exibirQuantidadeDespesasPendentes();
   }
+  listarDespesa(listaDespesas);
+}
+
+function trocaStatuspago(id) {
+  const despesaIndex = listaDespesas.findIndex((despesa) => despesa.id === id);
+  listaDespesas[despesaIndex].pago = !listaDespesas[despesaIndex].pago;
+  const linhaDespesa = document.querySelector(`.despesa-${id}`);
+  if (listaDespesas[despesaIndex].pago) {
+    linhaDespesa.classList.remove("pendente");
+    linhaDespesa.classList.add("pago");
+    exibiDespesaspagas();
+    exibirDespesasapagar();
+    exibirQuantidadeDespesasPendentes();
+  } else {
+    linhaDespesa.classList.remove("pago");
+    linhaDespesa.classList.add("pendente");
+    exibiDespesaspagas();
+    exibirDespesasapagar();
+    exibirQuantidadeDespesasPendentes();
+  }
+  listarDespesa(listaDespesas);
 }
 
 // tabela listar despesa
-
 function listarDespesa(listaFiltrodespesas) {
   tabelaControleDedespesas.innerHTML = listaDespesas.map((despesa) => {
     if (despesa.despesa !== "") {
+      let classeStatus = "";
+      if (despesa.pago) {
+        classeStatus = "pago-linha";
+      } else {
+        classeStatus = "pendente-linha";
+      }
       return `
-          <tr>
-            <td>${despesa.data}</td>
-            <td>${despesa.despesa}</td>
-            <td>${despesa.valor}</td>
-            <td>
-              <button btn-Status id="pago" class="btn-salvar btn-primary${
-                despesa.pago ? "" : " hidden"
-              }" data-id="${despesa.id}" onclick="trocaStatuspago(${
+        <tr class="despesa-${despesa.id} ${classeStatus}">
+          <td>${despesa.data}</td>
+          <td>${despesa.despesa}</td>
+          <td>${despesa.valor}</td>
+          <td>
+            <button btn-Status id="pago" class="btn-salvar btn-primary${
+              despesa.pago ? "" : " hidden"
+            }" data-id="${despesa.id}" onclick="trocaStatuspago(${
         despesa.id
       })">Pago</button>
-              <button btn-Status id="pendente" class="btn-cancelar botao-cancelar-pagina${
-                !despesa.pago ? "" : " hidden"
-              }" data-id="${despesa.id}" onclick="trocaStatuspago(${
+            <button btn-Status id="pendente" class="btn-cancelar botao-cancelar-pagina${
+              !despesa.pago ? "" : " hidden"
+            }" data-id="${despesa.id}" onclick="trocaStatuspago(${
         despesa.id
       })">Pendente</button>
-            </td>
-            <button id="excluirStatuspendente"class="btn-cancelar botao-cancelar-pagina" data-id="${
-              despesa.id
-            }" onclick="excluirDespesasPendentes(${
-        despesa.id
-      })">Excluir</button>
-
-          </tr>
-        `;
+          </td>
+          <td>
+          <button id="excluirStatuspendente"class="btn-cancelar botao-cancelar-pagina" data-id="${
+            despesa.id
+          }" onclick="excluirDespesasPendentes(${despesa.id})">Excluir</button>
+          </td>
+        </tr>
+      `;
     } else {
       return "";
     }
   });
-
   atualizandoLocalstoragedespesas();
 }
 
@@ -298,9 +337,25 @@ function exibeListaFiltro(despesa) {
     <td>${despesa.data}</td>
     <td>${despesa.despesa}</td>
     <td>${despesa.valor}</td>
-    <button class="btn-cancelar botao-cancelar-pagina" data-id="${despesa.id}" onclick="excluirDespesa(${despesa.id})">Excluir</button>
-    </tr>`;
+    <td>
+            <button btn-Status id="pago" class="btn-salvar btn-primary${
+              despesa.pago ? "" : " hidden"
+            }" data-id="${despesa.id}" onclick="trocaStatusFiltro(${
+      despesa.id
+    })">Pago</button>
+            <button btn-Status id="pendente" class="btn-cancelar botao-cancelar-pagina${
+              !despesa.pago ? "" : " hidden"
+            }" data-id="${despesa.id}" onclick="trocaStatusFiltro(${
+      despesa.id
+    })">Pendente</button>
+          </td>
+    <td>
+    <button class="btn-cancelar botao-cancelar-pagina" data-id="${
+      despesa.id
+    }" onclick="excluirDespesa(${despesa.id})">Excluir</button>
+    </td></tr>`;
   });
+
   tabelaControleDedespesas.innerHTML = trTdsfiltro;
 }
 
@@ -324,6 +379,7 @@ function limparFormulario() {
 btnSalvardespesa.addEventListener("click", () => {
   if (validarFormularioDespesa()) {
     salvarDespesa();
+    listarDespesa();
     limparFormulario();
     exibirQuantidadeDespesasPendentes();
     mostraPaginaHome();
@@ -332,7 +388,7 @@ btnSalvardespesa.addEventListener("click", () => {
 });
 
 btnFiltrarCadastro.addEventListener("click", () => {
-  validarFormulario();
+  inputFiltro.value = "";
   mostraPaginaCategorias();
 });
 
@@ -344,14 +400,13 @@ inputFiltro.addEventListener("keyup", () => {
     let comparacaoId = categoria.id.toString() === valor;
     return comparaCategoria || comparacaoId;
   });
+  // trocaStatuspago(listaFiltrada);
   listarCategoria(listaFiltrada);
+  inputFiltroDespesas.value = "";
 });
 
 function limparCampo() {
   inputCategoria.value = "";
-}
-function mensagem() {
-  alert("por favor edite sua categoria na tela anterior");
 }
 // funcao troca de paginas
 function mostraPaginaCategorias() {
@@ -397,21 +452,17 @@ function mostraCadastroCategoria() {
 
 btnAddcategoria.addEventListener("click", mostraCadastroCategoria);
 btnCancelarCategoria.addEventListener("click", mostraPaginaCategorias);
-// btn da pagina de add categoria
-btnSalvar.addEventListener("click", () => {
-  validarFormulario();
-  mostraPaginaCategorias();
-  listarCategoria(listadeCategorias);
-});
-btnFiltrarDespesa.addEventListener("click", () => {
-  validarFormulario();
+
+btnFiltrarDespesa.addEventListener("click", function () {
+  inputFiltroDespesas.value = "";
+  mostraPaginaHome();
 });
 btnCancelaDespesa.addEventListener("click", () => {
   mostraPaginaHome();
 });
 
 // obs: usar parseFloat pra converter em numero
-// A chamada do método replaceé usada nesse código para transformar o valor da despesa de uma string formatada na moeda brasileira em um valor numérico (float) que pode ser usado em cálculos matemáticos.
+// A chamada do método replace usada nesse código para transformar o valor da despesa de uma string formatada na moeda brasileira em um valor numérico (float) que pode ser usado em cálculos matemáticos.
 function somaDespesasPagas() {
   const despesasPagas = listaDespesas.filter((despesa) => despesa.pago);
   const totalDespesasPagas = despesasPagas.reduce((total, despesa) => {
@@ -452,9 +503,7 @@ function exibirDespesasapagar() {
     maximumFractionDigits: 2,
   })}`;
 }
-document.addEventListener("DOMContentLoaded", function () {
-  // your JavaScript code goes here
-});
+
 function contarDespesasPendentes() {
   const despesasPendentes = listaDespesas.filter((despesa) => !despesa.pago);
   return despesasPendentes.length;
@@ -467,6 +516,7 @@ function exibirQuantidadeDespesasPendentes() {
     cardAtrasadas.innerHTML = quantidade;
   }
 }
+// exlcuindo despesas pendentes e exibindo cards
 function excluirDespesasPendentes(id) {
   let despesasPendentesFiltradas = listaDespesas.filter(
     (despesa) => !despesa.pago
@@ -474,10 +524,9 @@ function excluirDespesasPendentes(id) {
 
   if (despesasPendentesFiltradas.length > 0) {
     despesasPendentesFiltradas.splice(0, 1); // remove first element
-    cardAtrasadas.innerHTML = despesasPendentesFiltradas.length; // update count in HTML
-    excluirDespesa(id)
-    
-    
+    exibirQuantidadeDespesasPendentes();
+    location.reload(); // update count in HTML
+    excluirDespesa(id);
   } else {
     let despesasPagasFiltradas = listaDespesas.filter(
       (despesa) => despesa.pago
@@ -485,19 +534,19 @@ function excluirDespesasPendentes(id) {
 
     if (despesasPagasFiltradas.length > 0) {
       despesasPagasFiltradas = listaDespesas.filter((despesa) => despesa.pago);
-      cardTotalpago.innerHTML = 0; // reset count in HTML
+      cardTotalpago.innerHTML = 0;
       excluirDespesa(id);
-      
-      
     }
   }
 }
-window.addEventListener('load', () => {
-  let deleteDespesa = document.querySelector("#excluirStatuspendente");
-  
-  deleteDespesa.addEventListener('click', () => {
-    excluirDespesasPendentes();
-    
-  });
-});
+// formatando moeda
+const inputValor1 = document.getElementById("valor");
 
+inputValor.addEventListener("input", function () {
+  let valor = this.value.replace(/\D/g, "");
+  valor = (valor / 100)
+    .toFixed(2)
+    .replace(".", ",")
+    .replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
+  this.value = `R$ ${valor}`;
+});

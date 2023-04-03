@@ -8,14 +8,11 @@
   margin-left: 10%;
 }
 
+
 table {
   margin: auto;
-
-  
-
   width: 60%;
   height: 56px;
-
   background: #f3f4f6;
   flex: none;
   order: 0;
@@ -23,42 +20,32 @@ table {
   flex-grow: 0;
 }
 
-  th {
- 
+th {
   width: 820px;
-  height: 50px;
-  background: #F3F4F6;
-
+  height: 72px;
+  background: #F3F6F9;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 250%;
-
   letter-spacing: 0.25px;
-
   color: rgba(0, 0, 0, 0.87);
-
   flex: none;
   order: 0;
   flex-grow: 0;
+  border-bottom: 0.1rem solid #7f7f7f46;
+
 }
 td {
-  
-    text-align: center;
-  
-  
- 
+  text-align: center;
   line-height: 250%;
   height: 52px;
-  padding:4px 8px;
+  padding: 4px 8px;
   margin-top: 50%;
-  
-  
-  
-  
+  border-bottom: 0.1rem solid #7f7f7f46;
 }
 .tabela-despesas-container {
-  height: 300px; /* define a altura do contêiner */
+  height: 200px; /* define a altura do contêiner */
   overflow-y: auto; /* adiciona a barra de rolagem vertical automaticamente quando o conteúdo excede a altura do contêiner */
 }

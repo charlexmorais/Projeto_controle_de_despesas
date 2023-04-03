@@ -36,19 +36,19 @@
     </header>
     <!-- INICIO da pagina home -->
 
-    <section id="pagina-home" class="home  ">
+    <section id="pagina-home" class="home">
         <div class="card">
             <div class="card-total-pago card-primary">
                 <h1>TOTAL PAGO</h1>
-                <strong class="valor-pago" id="total-pago">0,00</strong>
+                <strong class="valor-pago valores1" id="total-pago">0,00</strong>
             </div>
             <div class="card-total_a_pagar card-primary">
                 <h1>TOTAL A PAGAR</h1>
-                <strong id="total-a-pagar">0,00</strong>
+                <strong class="valores2" id="total-a-pagar">0,00</strong>
             </div>
             <div class="card-atrasadas card-primary">
                 <h1>ATRASADAS</h1>
-                <strong id="total-atrasadas">0</strong>
+                <strong class="valores3" id="total-atrasadas">0</strong>
             </div>
         </div>
 
@@ -56,8 +56,8 @@
         <div class="container-filtrar ">
 
             <label for="Filtrar">Filtrar</label>
-            <input id="filtro-despesas" class="filtro-cadastro " type="text">
-            <button id="botao-filtrar" class="btn-primary btn-personalizacao-filtrar btn-filtrar ">FILTRAR</button>
+            <input id="filtro-despesas" class="filtro-cadastro input-filtrar" type="text">
+            <button id="botao-filtrar" class="btn-primary btn-personalizacao-filtrar btn-filtrar ">Remover</button>
 
         </div>
 
@@ -114,7 +114,7 @@
             </div>
             <div class=" conteiner-categoria-prymary">
                 <label for="valor">Valor</label>
-                <input id="valor" id="mascara" class="input-border-white input-category" type="text"
+                <input id="valor" id="mascara" class="input-border-white input-category " type="text"
                     placeholder="digite o valor da despesa">
             </div>
 
@@ -132,25 +132,27 @@
 
         <div class="container-filtro container-filtrar label ">
             <h1>CADASTRO DE CATEGORIAS</h1>
-            <label for="filtrar">filtrar</label>
+            <label for="filtrar">Filtrar</label>
 
             <input id="input-filtrar" class="input-filtrar " type="text">
             <button id="btn-filtrar-cadastro"
-                class="btn-primary btn-personalizacao btn-filtrar  botao-filtrar">FILTRAR</button>
+                class="btn-primary btn-personalizacao btn-filtrar  botao-filtrar">REMOVER</button>
         </div>
-        <table>
-            <thead>
-                <tr id="cabecalho">
-                    <th>ID</th>
-                    <th>Categoria</th>
-                    <th>Açoes</th>
-                </tr>
+        <div class="tabela-despesas-container">
+            <table>
+                <thead>
+                    <tr id="cabecalho">
+                        <th>ID</th>
+                        <th>Categoria</th>
+                        <th>Açoes</th>
+                    </tr>
 
-            </thead>
-            <tbody id="tabelalistadeCategorias"></tbody>
+                </thead>
+        </div>
+        <tbody id="tabelalistadeCategorias"></tbody>
 
         </table>
-        <button id="addcategoria" class="btn-adicionar btn-primary btn-personalizacao">ADICIONAR
+        <button id="addcategoria" class="btn-adicionar btn-primary btn-personalizacao btn-adicionar">ADICIONAR
             CATEGORIA</button>
 
     </section>
@@ -177,9 +179,9 @@
 
 
     </section> <!-- Final da pagina categoria+modal adicionar categoria-->
-
+    <script src="js/index.js" defer></script>
 </body>
-<script src="js/index.js"></script>
+
 
 
 

@@ -1,94 +1,111 @@
 /* reaproveitando cards*/
+
 .card-primary {
-    height: 125px;
-    width: 22%;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
-    left: 0%;
-    right: 0%;
-  }
-  /* reproveitando cards */
-  .card {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-top: 10px;
-    bottom: 79.01%;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 700;
+  height: 125px;
+  width: 22%;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  left: 0%;
+  right: 0%;
+}
+/* reproveitando cards */
+.card {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 10px;
+  bottom: 79.01%;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 143%;
+  text-align: center;
+  letter-spacing: 0.17px;
+  color: #000000;
+}
+
+.card-total-pago {
+  top: 25%;
+  border-bottom: 4px solid  #178D46;
+  padding-bottom: 10px; /* opcional */
+  
+}
+.valores1{
+  color:#178D46 ;
+}
+.valores2{
+color:#FF0000;
+}
+.valores3{
+color:#FFB800;
+}
+.card-total_a_pagar {
+  top: 14%;
+  border-bottom: 4px solid  #FF0000;
+  ;
+  padding-bottom: 10px; /* opcional */
+}
+
+.card-atrasadas {
+  position: relative;
+  border-bottom: 4px solid#FFB800;
+  ;
+  padding-bottom: 10px; /* opcional */
+
+  top: 10%;
+}
+/* responsividade  font , resolucao */
+@media (max-width: 900px) {
+  .card-total-pago h1 {
     font-size: 24px;
-    line-height: 143%;
-  
-    text-align: center;
-    letter-spacing: 0.17px;
-  
     color: #000000;
   }
-  
-  .card-total-pago {
-    top: 25%;
+  .card-total-pago  {
+    font-size: 25px;
+    color: #000000;
   }
-  .card-total_a_pagar {
-    top: 14%;
+  .card-total_a_pagar h1 {
+    font-size: 24px;
+    color: #000000;
   }
-  
-  .card-atrasadas {
-    position: relative;
-  
-    top: 10%;
+  .card-total_a_pagar  {
+    font-size: 15px;
+    color: #000000;
   }
-  /* responsividade  font , resolucao */
-  @media (max-width: 900px) {
-    .card-total-pago h1 {
-      font-size: 24px;
-      color: #178d46;
-    }
-    .card-total-pago strong {
-      font-size: 25px;
-      color: #178d46;
-    }
-    .card-total_a_pagar h1 {
-      font-size: 24px;
-      color: #ff0000;
-    }
-    .card-total_a_pagar strong {
-      font-size: 15px;
-      color: #ff0000;
-    }
-    .card-atrasadas h1 {
-      font-size: 24px;
-      color: #ffb800;
-    }
-    .card-atrasadas strong {
-      font-size: 25px;
-      color: #ffb800;
-    }
+  .card-atrasadas h1 {
+    font-size: 24px;
+    color: #000000;
   }
-  @media (min-width: 700px) {
-    .card-total-pago h1 {
-      font-size: 24px;
-      color: #178d46;
-    }
-    .card-total-pago strong {
-      font-size: 36px;
-      color: #178d46;
-    }
-    .card-total_a_pagar h1 {
-      font-size: 24px;
-      color: #ff0000;
-    }
-    .card-total_a_pagar strong {
-      font-size: 36px;
-      color: #ff0000;
-    }
-    .card-atrasadas h1 {
-      font-size: 24px;
-      color: #ffb800;
-    }
-    .card-atrasadas strong {
-      font-size: 36px;
-      color: #ffb800;
-    }
+  .card-atrasadas{
+    font-size: 25px;
+    color: #000000;
   }
+}
+@media (min-width: 700px) {
+  .card-total-pago h1 {
+    font-size: 24px;
+    color: #000000;
+  }
+  .card-total-pago  {
+    font-size: 36px;
+    color: #000000;
+  }
+  .card-total_a_pagar h1 {
+    font-size: 24px;
+    color: #000000;
+  }
+  .card-total_a_pagar  {
+    font-size: 36px;
+    color: #000000;
+  }
+  .card-atrasadas h1 {
+    font-size: 24px;
+    color: #000000;
+  }
+  .card-atrasadas  {
+    font-size: 36px;
+    color: #000000;
+  }
+}
