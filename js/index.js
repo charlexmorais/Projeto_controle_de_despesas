@@ -523,9 +523,9 @@ function excluirDespesasPendentes(id) {
   );
 
   if (despesasPendentesFiltradas.length > 0) {
-    despesasPendentesFiltradas.splice(0, 1); // remove first element
+    despesasPendentesFiltradas.splice(0, 1); 
     exibirQuantidadeDespesasPendentes();
-    location.reload(); // update count in HTML
+    location.reload(); 
     excluirDespesa(id);
   } else {
     let despesasPagasFiltradas = listaDespesas.filter(
