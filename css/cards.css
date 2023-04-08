@@ -124,4 +124,22 @@
     font-size: 10px;
     
   }
+  .container-modal{
+    margin-top: 30%;
+    margin-left: 21%;
+  }
+  .container-btn{
+    margin-right: 19.5%;
+  }
+  #pagina-despesas{
+    margin-left: -18%;
+    background-color: #ff0000;
+  }
+  .input-category{
+    width: 250px;
+  }
+  .conteiner-categoria-prymary label{
+    display: block;
+    margin-bottom: -2%;
+  }
 }
