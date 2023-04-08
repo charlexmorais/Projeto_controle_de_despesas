@@ -144,4 +144,14 @@
     display: block;
     margin-bottom: -2%;
   }
+  .card h1{
+    font-size: 10px;
+
+  }
+  .card strong{
+    font-size: 10px;
+  }
+  body{
+    font-size: 10px;
+  }
 }
