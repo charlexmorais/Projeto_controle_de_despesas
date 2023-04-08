@@ -3,6 +3,7 @@ html {
   overflow: hidden;
 }
 body {
+  touch-action: none;
   margin: 0;
   padding: 1px;
   background-color: white;
@@ -82,8 +83,6 @@ input {
   font-weight: 500;
   font-size: 15px;
   color: #ffffff;
-
- 
 }
 
 /* botao adicionar despesas */

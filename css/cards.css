@@ -116,8 +116,10 @@
 }
 
 @media (max-width: 360px) {
+ 
   #menu header {
     width: 100%;
+    
    
   }
   h1 {
@@ -133,7 +135,7 @@
   }
   #pagina-despesas{
     margin-left: -18%;
-    background-color: #ff0000;
+    
   }
   .input-category{
     width: 250px;
