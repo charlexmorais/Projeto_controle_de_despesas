@@ -75,12 +75,15 @@ function validarFormulario() {
       (obj) => obj.categoria == inputCategoria.value.toLowerCase()
     )
   ) {
-    alert("ERRO: digite novamente ");
+    exibirMensagem("erro", "digite novamente !");
+
+    // alert("ERRO: digite novamente ");
     inputCategoria.focus();
     return false;
   } else {
     inputCategoria.value = inputCategoria.value.toLowerCase();
-    alert("Preenchido com sucesso!");
+    exibirMensagem("sucesso", "Operação concluída com sucesso!");
+    // alert("Preenchido com sucesso!");
     salvarCategoria();
     limparCampo();
 
@@ -212,6 +215,7 @@ function validarFormularioDespesa() {
     inputBuscaCategoria.value.length !== 0 &&
     inputDespesas.value.length !== 0 &&
     listadeCategorias.some((obj) => obj.categoria == inputBuscaCategoria.value)
+    
   ) {
     // Verificar se o valor inserido é "R$ 0,00"
     if (inputValor.value === "R$ 0,00") {
@@ -219,7 +223,7 @@ function validarFormularioDespesa() {
       return false;
     }
   } else {
-    alert("ERRO digite novamente ");
+    exibirMensagem("erro", "digite novamente !");
     limparFormulario();
 
     return false;
@@ -227,7 +231,7 @@ function validarFormularioDespesa() {
 
   inputBuscaCategoria.value = inputBuscaCategoria.value.toLowerCase(); // converter para minúsculas
   inputDespesas.value = inputDespesas.value.toLowerCase(); // converter para minúsculas
-  alert("preenchido com sucesso");
+  exibirMensagem("sucesso", "Operação concluída com sucesso!");
   return true;
 }
 
@@ -550,3 +554,23 @@ inputValor.addEventListener("input", function () {
     .replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
   this.value = `R$ ${valor}`;
 });
+function exibirMensagem(tipo, mensagem) {
+  const mensagemElemento = document.createElement("div");
+  mensagemElemento.textContent = mensagem;
+  mensagemElemento.classList.add(tipo);
+
+  document.body.appendChild(mensagemElemento);
+
+  setTimeout(function() {
+    mensagemElemento.style.opacity = "0";
+    setTimeout(function() {
+      document.body.removeChild(mensagemElemento);
+    }, 1000);
+  }, 1000);
+}
+
+
+// Exemplo de uso
+// exibirMensagem("sucesso", "Operação concluída com sucesso!");
+
+// exibirMensagem("erro", "Ocorreu um erro durante a operação!");
