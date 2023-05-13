@@ -159,4 +159,36 @@
     
   }
  
+  #pendente{
+    width: 80px;
+    font-size: 8px;
+    text-align:left;
+  }
+  .btn-cancelar{
+    margin-top: 10%;
+    width: 80px;
+    font-size: 10px;
+  }
+  #filtro-despesas{
+  width: 140px;
+  }
+  .modal-add-despesa {
+   background-color: #178d46;
+    
+  }
+  .input-category {
+    height: 24px;
+    width: 465px;
+    left: 0px;
+    top: 0px;
+    margin-top: 2%;
+    margin-left:5%;
+  }
+ #meuFormulario label{
+  margin-left: 5%;
+
+  }
+  #input-filtrar{
+    width: 220px;
+  }
 }

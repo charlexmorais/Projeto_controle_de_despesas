@@ -2,6 +2,7 @@
   display: table;
   justify-content: space-between;
   margin-left: 2px;
+  
 }
 
 .thead {
@@ -21,6 +22,7 @@ table {
 }
 
 th {
+ 
   width: 820px;
   height: 72px;
   background: #F3F6F9;
@@ -38,6 +40,7 @@ th {
 
 }
 td {
+  
   text-align: center;
   line-height: 250%;
   height: 52px;
@@ -46,6 +49,7 @@ td {
   border-bottom: 0.1rem solid #7f7f7f46;
 }
 .tabela-despesas-container {
+ 
   height: 200px; /* define a altura do contêiner */
   overflow-y: auto; /* adiciona a barra de rolagem vertical automaticamente quando o conteúdo excede a altura do contêiner */
 }
