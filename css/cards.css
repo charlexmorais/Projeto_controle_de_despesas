@@ -116,7 +116,22 @@
 }
 
 @media (max-width: 360px) {
- 
+  
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    position: relative;
+  }
+  
+  .content {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  
   #menu header {
     width: 100%;
     
@@ -160,15 +175,18 @@
   }
  
   #pendente{
-    width: 80px;
+    padding-left: 4%;
+    width: 50px;
     font-size: 8px;
-    text-align:left;
+    
   }
   .btn-cancelar{
     margin-top: 10%;
-    width: 80px;
-    font-size: 10px;
+    padding-left: 2%;
+    width: 50px;
+    font-size: 8px;
   }
+
   #filtro-despesas{
   width: 140px;
   }
@@ -191,4 +209,13 @@
   #input-filtrar{
     width: 220px;
   }
+  table th{
+  
+  font-size: 8px;
+  }
+  table td{
+font-size: 8px;
+  }
+ 
+  
 }
