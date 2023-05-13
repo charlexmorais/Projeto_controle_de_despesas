@@ -142,7 +142,7 @@
     
   }
   .container-modal{
-    margin-top: 30%;
+    margin-top: 15%;
     margin-left: 21%;
   }
   .container-btn{
@@ -175,15 +175,16 @@
   }
  
   #pendente{
-    padding-left: 4%;
+    padding-left: 5%;
     width: 50px;
     font-size: 8px;
     
   }
   .btn-cancelar{
+   
     margin-top: 10%;
-    padding-left: 10%;
-    width: 50px;
+    padding-right: 10%;
+    width: 95px;
     font-size: 8px;
    
   }
