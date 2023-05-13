@@ -190,7 +190,11 @@
     font-size: 8px;
    
   }
-
+#botao-salvar-despesa{
+  width: 100px;
+  height: 44px;
+ font-size: 8px;
+}
   #filtro-despesas{
   width: 140px;
   }
