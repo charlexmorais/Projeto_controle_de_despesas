@@ -182,9 +182,10 @@
   }
   .btn-cancelar{
     margin-top: 10%;
-    padding-left: 2%;
+    padding-left: 10%;
     width: 50px;
     font-size: 8px;
+   
   }
 
   #filtro-despesas{
