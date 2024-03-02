@@ -13,7 +13,7 @@ O Controle de Despesas é uma aplicação web simples para ajudar no gerenciamen
 - **Adicionando categorias:** adicone as categorias e relacione com suas despesas .
 
 ## Capturas de Tela
-![Mobile 1](https://github.com/charlexmorais/assets/blob/master/img/tela-despesas.png)
+![Mobile 1](https://github.com/charlexmorais/assets/blob/master/img/categorias.png)
 
 
 ## Tecnologias Utilizadas
