@@ -10,7 +10,7 @@ O Controle de Despesas é uma aplicação web simples para ajudar no gerenciamen
 
 - **Registro de Despesas:** Adicione suas despesas facilmente com uma interface intuitiva.
 - **Resumo de Despesas:** Visualize um resumo claro e conciso das suas despesas.
-- **Análise de Tendências:** Analise padrões de gastos ao longo do tempo com gráficos informativos.
+- **Adicionando categorias:** adicone as categorias e relacione com suas depesas .
 
 ## Capturas de Tela
 ![Mobile 1](https://github.com/charlexmorais/assets/blob/master/img/tela-despesas.png)
