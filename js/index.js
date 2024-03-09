@@ -17,7 +17,7 @@ let paginaHome = document.getElementById("pagina-home");
 let paginaAddDespesas = document.getElementById("pagina-despesas");
 let paginaCadastroCategoria = document.getElementById("pagina-cadastro");
 let paginaAdicionarCategoria = document.getElementById("pagina-add-categoria");
-const tabelalistadeCategorias = document.getElementById(
+ const tabelalistadeCategorias = document.getElementById(
   "tabelalistadeCategorias"
 );
 const tabelaControleDedespesas = document.getElementById("exibir-resultado");
@@ -441,10 +441,31 @@ function mostraModaldespesa() {
   paginaAddDespesas.classList.remove("hidden");
   paginaHome.classList.add("hidden");
 }
+function exibirMensagem(tipo, mensagem) {
+  const mensagemElemento = document.createElement("div");
+  mensagemElemento.textContent = mensagem;
+  mensagemElemento.classList.add(tipo);
+
+  document.body.appendChild(mensagemElemento);
+
+  setTimeout(function() {
+    mensagemElemento.style.opacity = "0";
+    setTimeout(function() {
+      document.body.removeChild(mensagemElemento);
+    },1000);
+  }, 1000);
+}
+
 btnAdicionardespesa.addEventListener("click", () => {
-  mostraModaldespesa();
-  categoriasDatalist();
+  if (listadeCategorias.length === 0) {
+    // Se não houver categorias, exibe uma mensagem pedindo para adicionar categoria.
+    exibirMensagem("erro", "Adicione pelo menos uma categoria antes de adicionar despesas.");
+  } else {
+    mostraModaldespesa();
+    categoriasDatalist();
+  }
 });
+
 
 // funcao troca de paginas
 function mostraCadastroCategoria() {
@@ -554,20 +575,20 @@ inputValor.addEventListener("input", function () {
     .replace(/(\d)(?=(\d{3})+\,)/g, "$1.");
   this.value = `R$ ${valor}`;
 });
-function exibirMensagem(tipo, mensagem) {
-  const mensagemElemento = document.createElement("div");
-  mensagemElemento.textContent = mensagem;
-  mensagemElemento.classList.add(tipo);
+// function exibirMensagem(tipo, mensagem) {
+//   const mensagemElemento = document.createElement("div");
+//   mensagemElemento.textContent = mensagem;
+//   mensagemElemento.classList.add(tipo);
 
-  document.body.appendChild(mensagemElemento);
+//   document.body.appendChild(mensagemElemento);
 
-  setTimeout(function() {
-    mensagemElemento.style.opacity = "0";
-    setTimeout(function() {
-      document.body.removeChild(mensagemElemento);
-    }, 1000);
-  }, 1000);
-}
+//   setTimeout(function() {
+//     mensagemElemento.style.opacity = "0";
+//     setTimeout(function() {
+//       document.body.removeChild(mensagemElemento);
+//     }, 1000);
+//   }, 1000);
+// }
 
 
 // Exemplo de uso
