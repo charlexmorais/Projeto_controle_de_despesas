@@ -69,7 +69,7 @@
     color: #000000;
   }
   .card-total_a_pagar {
-    font-size: 15px;
+    font-size: 18px; /* Ajustado para melhor legibilidade em telas menores */
     color: #000000;
   }
   .card-atrasadas h1 {
@@ -81,145 +81,134 @@
     color: #000000;
   }
 }
+
 @media (min-width: 700px) {
-  .card-total-pago h1 {
-    font-size: 24px;
-    color: #000000;
-  }
-  .card-total-pago {
-    font-size: 36px;
-    color: #000000;
-  }
-  .card-total_a_pagar h1 {
-    font-size: 24px;
-    color: #000000;
-  }
-  .card-total_a_pagar {
-    font-size: 36px;
-    color: #000000;
-  }
+  .card-total-pago h1,
+  .card-total_a_pagar h1,
   .card-atrasadas h1 {
     font-size: 24px;
     color: #000000;
   }
+  .card-total-pago,
+  .card-total_a_pagar,
   .card-atrasadas {
     font-size: 36px;
     color: #000000;
   }
 }
+
 @media (max-width: 270px) {
   h1 {
-    font-size: 24px;
-   
-    
+    font-size: 20px; /* Ajustado para melhor legibilidade em telas menores */
   }
 }
 
 @media (max-width: 360px) {
-  
   html, body {
     height: 100%;
   }
-  
+
   body {
     position: relative;
   }
-  
+
   .content {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
   }
-  
-  
+
   #menu header {
     width: 100%;
-    
-   
   }
+
   h1 {
-    font-size: 10px;
-    
+    font-size: 12px; /* Ajustado para melhor legibilidade em telas menores */
   }
-  .container-modal{
+
+  .container-modal {
     margin-top: 15%;
     margin-left: 21%;
   }
-  .container-btn{
+
+  .container-btn {
     margin-right: 19.5%;
   }
-  #pagina-despesas{
+
+  #pagina-despesas {
     margin-left: -18%;
-    
   }
-  .input-category{
+
+  .input-category {
     width: 250px;
   }
-  .conteiner-categoria-prymary label{
-    display: none;
-    
-  }
-   
-  .card h1{
-    font-size: 10px;
 
+  .conteiner-categoria-prymary label {
+    display: none;
   }
-  .card strong{
-    font-size: 10px;
+
+  .card h1 {
+    font-size: 14px; /* Ajustado para melhor legibilidade em telas menores */
   }
-  body{
-    font-size: 10px;
+
+  .card strong {
+    font-size: 12px; /* Ajustado para melhor legibilidade em telas menores */
   }
-  .container-filtro{
-    background-color:white;
-    
+
+  body {
+    font-size: 12px; /* Ajustado para melhor legibilidade em telas menores */
   }
- 
-  #pendente{
+
+  .container-filtro {
+    background-color: white;
+  }
+
+  #pendente {
     padding-left: 5%;
     width: 50px;
-    font-size: 8px;
-    
+    font-size: 10px; /* Ajustado para melhor legibilidade em telas menores */
   }
-  .btn-cancelar{
-   
+
+  .btn-cancelar {
     padding-right: 10%;
     width: 95px;
-    font-size: 8px;
-   
+    font-size: 10px; /* Ajustado para melhor legibilidade em telas menores */
   }
-#botao-salvar-despesa{
-  width: 100px;
-  height: 44px;
- font-size: 8px;
-}
-  #filtro-despesas{
-  width: 140px;
+
+  #botao-salvar-despesa {
+    margin-left: 42%;
+    width: 100px;
+    height: 44px;
+    font-size: 10px; /* Ajustado para melhor legibilidade em telas menores */
   }
+
+  #filtro-despesas {
+    width: 140px;
+  }
+
   .modal-add-despesa {
-   background-color: #178d46;
-    
+    background-color: #178d46;
   }
+
   .input-category {
     height: 24px;
     width: 465px;
     left: 0px;
     top: 0px;
     margin-top: 2%;
-    margin-left:5%;
+    margin-left: 5%;
   }
- #meuFormulario label{
-  margin-left: 5%;
 
+  #meuFormulario label {
+    margin-left: 5%;
   }
-  #input-filtrar{
+
+  #input-filtrar {
     width: 220px;
   }
-  table th{
-  
-  font-size: 8px;
-  }
-  table td{
-font-size: 8px;
+
+  table th,
+  table td {
+    font-size: 10px; /* Ajustado para melhor legibilidade em telas menores */
   }
 }
